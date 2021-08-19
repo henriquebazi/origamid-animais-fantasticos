@@ -22,7 +22,7 @@ function initSlowlyScroll() {
   })
 }
 
-initSlowlyScroll()
+// initSlowlyScroll()
 
 /* Scroll Animation */
 function initScrollAnimation() {

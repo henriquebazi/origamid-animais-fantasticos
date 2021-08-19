@@ -19,3 +19,31 @@ function initWorkingTime() {
 }
 
 initWorkingTime()
+
+
+/*modules*/
+import SlowlyScroll from './modules/slowly-scroll.js'
+// import initScrollAnimation from './modules/scroll-animation.js'
+// import initAccordion from './modules/accordion.js'
+// import initTabNav from './modules/tabnav.js'
+// import initModal from './modules/modal.js'
+// import initTooltip from './modules/tooltip.js'
+// import initDropdownMenu from './modules/dropdown.js'
+// import initMenuMobile from './modules/mobile.js'
+// import initFuncionamento from './modules/start.js'
+// import initFetchAnimals from './modules/fetch.js'
+// import initFetchBitcoin from './modules/fetch-bitcoin.js'
+
+const slowlyScroll = new SlowlyScroll('.js-menu a[href^="#"]')
+slowlyScroll.init()
+
+// initScrollAnimation()
+// initAccordion()
+// initTabNav()
+// initModal()
+// initTooltip()
+// initDropdownMenu()
+// initMenuMobile()
+// initFuncionamento()
+// initFetchAnimals()
+// initFetchBitcoin()
