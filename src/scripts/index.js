@@ -24,7 +24,7 @@ initWorkingTime()
 /*modules*/
 import SlowlyScroll from './modules/slowly-scroll.js'
 // import initScrollAnimation from './modules/scroll-animation.js'
-// import initAccordion from './modules/accordion.js'
+import Accordion from './modules/accordion.js'
 // import initTabNav from './modules/tabnav.js'
 // import initModal from './modules/modal.js'
 // import initTooltip from './modules/tooltip.js'
@@ -37,8 +37,12 @@ import SlowlyScroll from './modules/slowly-scroll.js'
 const slowlyScroll = new SlowlyScroll('.js-menu a[href^="#"]')
 slowlyScroll.init()
 
+const accordion = new Accordion('[data-anime="accordion"] dt')
+accordion.init()
+
+
+
 // initScrollAnimation()
-// initAccordion()
 // initTabNav()
 // initModal()
 // initTooltip()
