@@ -70,7 +70,7 @@ function initTabNav() {
   }
 }
 
-initTabNav()
+// initTabNav()
 
 /* Accordion List */
 function initAccordion() {
@@ -111,7 +111,7 @@ function initSlowlyScroll() {
   })
 }
 
-initSlowlyScroll()
+// initSlowlyScroll()
 
 /* Scroll Animation */
 function initScrollAnimation() {
