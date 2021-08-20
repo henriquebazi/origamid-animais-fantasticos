@@ -88,7 +88,7 @@ function initAccordion() {
   }
 }
 
-initAccordion()
+// initAccordion()
 
 /* Slowly Scroll */
 function initSlowlyScroll() {
