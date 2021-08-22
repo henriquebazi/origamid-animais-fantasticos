@@ -15,9 +15,6 @@ export default class SlowlyScroll {
   
     const href = event.currentTarget.getAttribute('href')
     const section = document.querySelector(href)
-  
-    const browser = window
-    console.log(browser)
 
     section.scrollIntoView(this.options)
   }
