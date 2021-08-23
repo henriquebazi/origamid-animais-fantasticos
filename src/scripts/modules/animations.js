@@ -91,7 +91,7 @@ function initAccordion() {
 // initAccordion()
 
 /* Slowly Scroll */
-function initSlowlyScroll() {
+function SlowlyScroll() {
   const insideLinks = document.querySelectorAll('[data-anime="slowly"] a[href^="#"]')
   
   function scrollToSection(event) {
@@ -111,10 +111,10 @@ function initSlowlyScroll() {
   })
 }
 
-// initSlowlyScroll()
+// SlowlyScroll()
 
 /* Scroll Animation */
-function initScrollAnimation() {
+function ScrollAnimation() {
   const sections = document.querySelectorAll('[data-anime="scroll"]')
   const windowHalf = window.innerHeight / 2
 
@@ -137,15 +137,21 @@ function initScrollAnimation() {
   }
 }
 
-initScrollAnimation()
+ScrollAnimation()
 
 /* Numbers Animations */
-function initNumbersAnimations() {
-  const numbers = document.querySelectorAll('[data-number]')
+export default class NumbersAnimation {
+  constructor(numbers, observerTarget, observerClass) {
+    this.numbers = document.querySelectorAll(numbers)
+    this.observerTarget =  document.querySelector(observerTarget)
+    this.observerClass = observerClass
 
-  numbers.forEach(number => {
+    this.handleMutation = this.handleMutation.bind(this)
+  }
+
+  static incrementNumbert(number) {
     let start = 0
-    
+      
     const total = +number.innerText
     const increment = Math.floor(total / 100)
 
@@ -157,17 +163,28 @@ function initNumbersAnimations() {
         clearInterval(timer)
       }
     }, 25 * Math.random())
-  })
-}
+  }
 
-function handleMutation(mutation){
-  if(mutation[0].target.classList.contains('active')) {
-    observer.disconnect()
-    initNumbersAnimations()
+  numbersAnimation() {
+    this.numbers.forEach(number => this.constructor.incrementNumbert(number))
+  }
+
+
+  handleMutation(mutation){
+    if(mutation[0].target.classList.contains(this.observerClass)) {
+      this.observer.disconnect()
+      this.numbersAnimation()
+    }
+  }
+
+  addMutationObserver() {
+    this.observer = new MutationObserver(this.handleMutation)
+    this.observer.observe(this.observerTarget, {attributes: true})
+  }
+
+  init() {
+    if(this.numbers.length && this.observerTarget) {
+      this.addMutationObserver()
+    }
   }
 }
-
-const observerTarget = document.querySelector('.numbers')
-const observer = new MutationObserver(handleMutation)
-
-observer.observe(observerTarget, {attributes: true})
