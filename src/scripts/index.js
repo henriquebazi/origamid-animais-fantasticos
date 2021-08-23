@@ -31,7 +31,7 @@ import Tooltip from './modules/tooltip.js'
 // import initDropdownMenu from './modules/dropdown.js'
 // import initMenuMobile from './modules/mobile.js'
 // import initFuncionamento from './modules/start.js'
-// import initFetchAnimals from './modules/fetch.js'
+import fetchAnimal from './modules/fetch.js'
 // import initFetchBitcoin from './modules/fetch-bitcoin.js'
 
 const slowlyScroll = new SlowlyScroll('[data-anime="slowly"] a[href^="#"]')
@@ -49,9 +49,4 @@ modal.init()
 const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init()
 
-// initScrollAnimation()
-// initDropdownMenu()
-// initMenuMobile()
-// initFuncionamento()
-// initFetchAnimals()
-// initFetchBitcoin()
+fetchAnimal('../../public/animaisapi.json', '.numbers-grid')
