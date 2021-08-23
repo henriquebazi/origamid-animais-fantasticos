@@ -1,3 +1,5 @@
+import NumbersAnimation from './animations.js'
+
 async function initFetchAnimais(url) {
   const numbersGrid = document.querySelector('.numbers-grid')
   
@@ -20,7 +22,9 @@ async function initFetchAnimais(url) {
       numbersGrid.appendChild(divAnimal)
     })
 
-    initNumbersAnimations()
+    const numbersAnimation = new NumbersAnimation('[data-number]', '.numbers', 'active')
+    numbersAnimation.init()
+
   } catch(error) {
     console.log(error)
   }
