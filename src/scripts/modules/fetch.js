@@ -1,6 +1,6 @@
 import NumbersAnimation from './animations.js'
 
-export default function fetchAnimal(url, target) {
+export function fetchAnimal(url, target) {
   function createAnimalDiv(animal) {
     const div = document.createElement('div')  
     
@@ -37,8 +37,8 @@ export default function fetchAnimal(url, target) {
   return createAnimal()
 }
 
-async function initFetchBitcoin(url) {
-  const btcPrice = document.querySelector('.btc-price')
+export async function fetchBitcoin(url, target) {
+  const btcPrice = document.querySelector(target)
   
   try {
     const getBitcoinPrice = await fetch(url)
@@ -49,5 +49,3 @@ async function initFetchBitcoin(url) {
     console.log(error)
   }
 }
-
-initFetchBitcoin('https://blockchain.info/ticker')

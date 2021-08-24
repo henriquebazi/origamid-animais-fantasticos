@@ -31,8 +31,8 @@ import Tooltip from './modules/tooltip.js'
 // import initDropdownMenu from './modules/dropdown.js'
 // import initMenuMobile from './modules/mobile.js'
 // import initFuncionamento from './modules/start.js'
-import fetchAnimal from './modules/fetch.js'
-// import initFetchBitcoin from './modules/fetch-bitcoin.js'
+import { fetchAnimal } from './modules/fetch.js'
+import { fetchBitcoin } from './modules/fetch.js'
 
 const slowlyScroll = new SlowlyScroll('[data-anime="slowly"] a[href^="#"]')
 slowlyScroll.init()
@@ -50,3 +50,4 @@ const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init()
 
 fetchAnimal('../../public/animaisapi.json', '.numbers-grid')
+fetchBitcoin('https://blockchain.info/ticker', '.btc-price')
