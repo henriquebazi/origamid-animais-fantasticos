@@ -1,4 +1,4 @@
-import NumbersAnimation from './animations.js'
+import NumbersAnimation from './numbers-animation.js'
 
 export function fetchAnimal(url, target) {
   function createAnimalDiv(animal) {
