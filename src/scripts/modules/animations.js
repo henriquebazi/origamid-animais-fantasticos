@@ -48,7 +48,7 @@ function initScrollAnimation() {
   }
 }
 
-initScrollAnimation()
+// initScrollAnimation()
 
 /* Navegation Tab */
 function initTabNav() {
@@ -137,7 +137,7 @@ function ScrollAnimation() {
   }
 }
 
-ScrollAnimation()
+
 
 /* Numbers Animations */
 export default class NumbersAnimation {
