@@ -28,7 +28,7 @@ import Accordion from './modules/accordion.js'
 import TabNav from './modules/tabnav.js'
 import Modal from './modules/modal.js'
 import Tooltip from './modules/tooltip.js'
-// import initDropdownMenu from './modules/dropdown.js'
+import DropdownMenu from './modules/dropdown.js'
 // import initMenuMobile from './modules/mobile.js'
 // import initFuncionamento from './modules/start.js'
 import { fetchAnimal } from './modules/fetch.js'
@@ -51,6 +51,9 @@ tooltip.init()
 
 const scrollAnimation = new ScrollAnimation('[data-anime="scroll"]')
 scrollAnimation.init()
+
+const dropdown = new DropdownMenu('[data-dropdown]')
+dropdown.init()
 
 fetchAnimal('../../public/animaisapi.json', '.numbers-grid')
 fetchBitcoin('https://blockchain.info/ticker', '.btc-price')
