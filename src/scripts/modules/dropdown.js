@@ -1,32 +1,4 @@
-/* Accordion List */
-function initAccordion() {
-  const accordionList = document.querySelectorAll('.js-accordion dt')
-
-  if (accordionList.length) {
-    function activeAccordion() {
-      this.classList.toggle('active')
-      this.nextElementSibling.classList.toggle('active')
-    }
-    
-    accordionList.forEach(item => {
-      item.addEventListener('click', activeAccordion)
-    })
-  }
-}
-
-initAccordion()
-
 /* Dropdown Menu */
-function handleClick(event) {
-  event.preventDefault()
-
-  this.classList.add('active')
-
-  outsideClick(this, ['touchstart', 'click'],() => {
-    this.classList.remove('active')
-  })
-}
-
 function outsideClick(element, events, callback) {
   const html = document.documentElement
   const outside = 'data-outside'
@@ -52,17 +24,44 @@ function outsideClick(element, events, callback) {
   }
 }
 
-function initDropDown() {
-  const dropDownMenus = document.querySelectorAll('[data-dropdown]')
+export default class DropdownMenu {
+  constructor(menus, events) {
+    this.dropDownMenus = document.querySelectorAll(menus)
+    this.activeClass = 'active'
+    
+    if (events === undefined) this.events = ['touchstart', 'click']
+    else this.events = events
 
-  dropDownMenus.forEach(menu => {
-    ['touchstart', 'click'].forEach((userEvent) => {
-      menu.addEventListener(userEvent, handleClick)
+    this.activeDropdownMenu = this.activeDropdownMenu.bind(this)
+  }
+
+  activeDropdownMenu(event) {
+    event.preventDefault()
+    
+    const element = event.currentTarget
+    element.classList.add(this.activeClass)
+  
+    outsideClick(element, this.events,() => {
+      element.classList.remove(this.activeClass)
     })
-  })
-}
+  }
 
-initDropDown()
+  addDropdownMenusEvent() {
+    this.dropDownMenus.forEach(menu => {
+      this.events.forEach((userEvent) => {
+        menu.addEventListener(userEvent, this.activeDropdownMenu)
+      })
+    })
+  }
+
+  init() {
+    if(this.dropDownMenus.length) {
+      this.addDropdownMenusEvent()
+    }
+
+    return this
+  }
+}
 
 /* Mobile Menu */
 function initMenuMobile() {
