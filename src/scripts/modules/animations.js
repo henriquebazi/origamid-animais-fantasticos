@@ -186,5 +186,7 @@ export default class NumbersAnimation {
     if(this.numbers.length && this.observerTarget) {
       this.addMutationObserver()
     }
+
+    return this
   }
 }
