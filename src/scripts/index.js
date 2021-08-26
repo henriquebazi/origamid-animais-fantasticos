@@ -36,7 +36,6 @@ const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]')
 menuMobile.init()
 
 const workingTime = new WorkingTime('[data-week]', 'open')
-console.log(workingTime)
 workingTime.init()
 
 fetchAnimal('../../public/animaisapi.json', '.numbers-grid')
