@@ -10,6 +10,7 @@ import MenuMobile from './modules/mobile.js'
 import WorkingTime from './modules/start.js'
 import { fetchAnimal } from './modules/fetch.js'
 import { fetchBitcoin } from './modules/fetch.js'
+import { SlideNav } from './modules/slide.js'
 
 const slowlyScroll = new SlowlyScroll('[data-anime="slowly"] a[href^="#"]')
 slowlyScroll.init()
@@ -40,3 +41,7 @@ workingTime.init()
 
 fetchAnimal('../../public/animaisapi.json', '.numbers-grid')
 fetchBitcoin('https://blockchain.info/ticker', '.btc-price')
+
+const slide = new SlideNav('.content', '.slide')
+slide.init()
+slide.addControl('.custom-controls')
